@@ -4,12 +4,11 @@ export default function PlaylistBlock(props: PlaylistBlockProp) {
   return (
     <div className="container rounded py-3">
       <div className="row bg-light rounded">
-        <div className="col-2">
+        <div className="col-auto p-0">
           <img className="rounded" src={imgUrl} width="100" height="100"></img>
         </div>
-        <div className="col">
-          <p className="text-center text-decoration-none">{name}</p>
-          <a href="#" className="stretch-link"></a>
+        <div className="col align-self-center">
+          <h4 className="text-center">{name}</h4>
         </div>
       </div>
     </div>
