@@ -8,10 +8,10 @@ export default function Mixer() {
         <h1>Mixer!</h1>
       </div>
       <div className="row border">
-        <div className="col-7 border-end">
+        <div className="col-lg-7 border-end">
           <Playlists />
         </div>
-        <div className="col-5">
+        <div className="col-lg-5">
           <MixerForm />
         </div>
       </div>
