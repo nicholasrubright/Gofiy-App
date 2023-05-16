@@ -1,6 +1,5 @@
 import { useState } from "react";
-import ListOptions from "./ListOptions";
-import PlaylistBlock from "./PlaylistBlock";
+import { PlaylistBlock, ListOptions } from "./";
 import Loader from "@/shared/components/Loader";
 
 const img =

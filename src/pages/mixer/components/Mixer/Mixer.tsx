@@ -1,9 +1,7 @@
-import { useState } from "react";
-import MixerForm from "./MixerForm";
-import Playlists from "./Playlists";
-import Loader from "@/shared/components/Loader";
+import { MixerForm } from "./";
+import { Playlists } from "../Playlist";
 
-export default function MixerComponent() {
+export default function Mixer() {
   return (
     <div className="container px-4 py-5 my-5">
       <div className="row text-center">
