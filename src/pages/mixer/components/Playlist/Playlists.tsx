@@ -11,10 +11,10 @@ export default function Playlists() {
 
   const testBlocks = (
     <>
-      <PlaylistBlock name={name} imgUrl={img} />
-      <PlaylistBlock name={name} imgUrl={img} />
-      <PlaylistBlock name={name} imgUrl={img} />
-      <PlaylistBlock name={name} imgUrl={img} />
+      <PlaylistBlock name={name} imgUrl={img} active={true} />
+      <PlaylistBlock name={name} imgUrl={img} active={false} />
+      <PlaylistBlock name={name} imgUrl={img} active={true} />
+      <PlaylistBlock name={name} imgUrl={img} active={false} />
     </>
   );
 

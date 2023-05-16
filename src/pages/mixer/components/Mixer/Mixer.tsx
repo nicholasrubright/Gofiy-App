@@ -1,3 +1,5 @@
+import "@/styles/Mixer.module.css";
+
 import { MixerForm } from "./";
 import { Playlists } from "../Playlist";
 
