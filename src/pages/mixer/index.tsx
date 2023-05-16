@@ -1,10 +1,10 @@
-import Mixer from "@/components/Mixer";
+import MixerComponent from "@/pages/mixer/components/MixerComponent";
 
-export default function Portal() {
+export default function Mixer() {
   return (
     <div>
-      <h1>Portal Page!</h1>
-      <Mixer />
+      <h1>Mixer Page!</h1>
+      <MixerComponent />
     </div>
   );
 }

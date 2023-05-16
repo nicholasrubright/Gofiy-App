@@ -4,7 +4,7 @@ import {
   TokenRequest,
   TokenResponse,
   UserProfileResponse,
-} from "@apiTypes/index";
+} from "@/shared/types/index";
 
 interface IGoifyApi {
   checkStatus: (response: Response) => Promise<any>;
