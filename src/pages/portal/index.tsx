@@ -1,3 +1,15 @@
+import Mixer from "@/components/Mixer";
+
+export default function Portal() {
+  return (
+    <div>
+      <h1>Portal Page!</h1>
+      <Mixer />
+    </div>
+  );
+}
+
+/*
 import type { GetServerSidePropsContext } from "next";
 import GoifyApi from "./api";
 import { AuthUrlResponse } from "@apiTypes/index";
@@ -63,3 +75,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 }
+*/
