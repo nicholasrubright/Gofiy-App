@@ -1,5 +1,5 @@
 export default function PlaylistBlock(props: PlaylistBlockProp) {
-  const { imgUrl, name, active } = props;
+  const { id, imgUrl, name, active, selectPlaylist } = props;
 
   return (
     <div className="container rounded py-3">
@@ -15,14 +15,19 @@ export default function PlaylistBlock(props: PlaylistBlockProp) {
         <div className="col align-self-center">
           <h4 className="text-center">{name}</h4>
         </div>
-        <a href="#" className="stretched-link"></a>
+        <a
+          onClick={(e) => selectPlaylist(e, id)}
+          className="stretched-link"
+        ></a>
       </div>
     </div>
   );
 }
 
 interface PlaylistBlockProp {
+  id: number;
   imgUrl: string;
   name: string;
   active: boolean;
+  selectPlaylist: (e: any, index: number) => void;
 }

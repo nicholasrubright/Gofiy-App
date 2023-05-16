@@ -9,10 +9,7 @@ export default function Jumbotron() {
           <Link href="/mixer" className="btn btn-primary btn-lg px-4 gap-3">
             Mix!
           </Link>
-          <button
-            type="button"
-            className="btn btn-outline-secondary btn-lg px-4"
-          >
+          <button type="button" className="btn btn-mxGreen btn-lg px-4">
             Learn More
           </button>
         </div>

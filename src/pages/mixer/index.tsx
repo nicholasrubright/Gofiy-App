@@ -3,7 +3,6 @@ import { Mixer } from "@/pages/mixer/components/Mixer";
 export default function Page() {
   return (
     <div>
-      <h1>Mixer Page!</h1>
       <Mixer />
     </div>
   );
