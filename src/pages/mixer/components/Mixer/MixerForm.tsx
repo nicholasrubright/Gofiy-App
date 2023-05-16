@@ -1,4 +1,6 @@
-export default function MixerForm() {
+export default function MixerForm(props: MixerFormProps) {
+  const { newPlaylistName, handleNewPlaylistName, createNewPlaylist } = props;
+
   return (
     <div className="container h-100">
       <div id="title" className="row text-center border-bottom py-2">
@@ -6,14 +8,16 @@ export default function MixerForm() {
       </div>
       <div id="fields" className="row mt-2 p-4">
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">
+          <label htmlFor="newPlaylistName" className="form-label">
             Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="name"
+            id="newPlaylistName"
+            value={newPlaylistName}
             placeholder="Awesome Playlist"
+            onChange={(e) => handleNewPlaylistName(e)}
           />
         </div>
       </div>
@@ -23,11 +27,21 @@ export default function MixerForm() {
           <p>Total Selected Playlists: </p>
         </div>
         <div id="buttons" className="row border-top p-3">
-          <button type="button" className="btn btn-primary">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={(e) => createNewPlaylist(e)}
+          >
             Create
           </button>
         </div>
       </div>
     </div>
   );
+}
+
+interface MixerFormProps {
+  newPlaylistName: string;
+  handleNewPlaylistName: (e: any) => void;
+  createNewPlaylist: (e: any) => void;
 }

@@ -2,53 +2,17 @@ import { useState } from "react";
 import { PlaylistBlock, ListOptions } from "./";
 import Loader from "@/shared/components/Loader";
 
-const img =
-  "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9";
-const name = "Test Playlist";
+export default function Playlists(props: PlaylistProps) {
+  const { isLoading, playlists, selectedPlaylists, selectPlaylist } = props;
 
-const data = [
-  {
-    name: "Cool Playlist",
-    img: img,
-  },
-  {
-    name: "Aweomes playlist",
-    img: img,
-  },
-  {
-    name: "pepe poopoo",
-    img: img,
-  },
-  {
-    name: "aw Playlist",
-    img: img,
-  },
-  {
-    name: "erin is smelly",
-    img: img,
-  },
-];
-
-export default function Playlists() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [selectedPlaylist, setSelectedPlaylist] = useState<boolean[]>(
-    Array.prototype.fill(false, 0, data.length)
-  );
-
-  const selectPlaylist = (e: any, index: number): void => {
-    const updatedSelectedPlaylists = selectedPlaylist;
-    updatedSelectedPlaylists[index] = !updatedSelectedPlaylists[index];
-    setSelectedPlaylist([...updatedSelectedPlaylists]);
-  };
-
-  const playlistBlocks = data.map((item, index) => {
+  const playlistBlocks = playlists.map((playlist, index) => {
     return (
       <PlaylistBlock
+        key={index}
         id={index}
-        name={item.name}
-        imgUrl={item.img}
-        active={selectedPlaylist[index]}
+        name={playlist.name}
+        imgUrl={playlist.img}
+        active={selectedPlaylists[index]}
         selectPlaylist={selectPlaylist}
       />
     );
@@ -72,4 +36,11 @@ export default function Playlists() {
       </div>
     </div>
   );
+}
+
+interface PlaylistProps {
+  isLoading: boolean;
+  playlists: any[];
+  selectedPlaylists: boolean[];
+  selectPlaylist: (e: any, index: number) => void;
 }
