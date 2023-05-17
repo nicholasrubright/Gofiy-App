@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { PlaylistBlock, ListOptions } from "./";
 import Loader from "@/shared/components/Loader";
+import { Playlist, PlaylistMapping } from "@mytypes/index";
 
 export default function Playlists(props: PlaylistProps) {
   const { isLoading, playlists, selectedPlaylists, selectPlaylist } = props;
 
-  const playlistBlocks = playlists.map((playlist, index) => {
+  const playlistBlocks = playlists.map((playlist) => {
     return (
       <PlaylistBlock
-        key={index}
-        id={index}
+        key={playlist.id}
+        id={playlist.id}
         name={playlist.name}
         imgUrl={playlist.img}
-        active={selectedPlaylists[index]}
+        active={selectedPlaylists[playlist.id]}
         selectPlaylist={selectPlaylist}
       />
     );
@@ -40,7 +40,7 @@ export default function Playlists(props: PlaylistProps) {
 
 interface PlaylistProps {
   isLoading: boolean;
-  playlists: any[];
-  selectedPlaylists: boolean[];
-  selectPlaylist: (e: any, index: number) => void;
+  playlists: Playlist[];
+  selectedPlaylists: PlaylistMapping;
+  selectPlaylist: (e: any, id: number) => void;
 }

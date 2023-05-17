@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@types/*": ["./src/shared/types/*"],
+      "@mytypes/*": ["./src/shared/mytypes/*"],
       "@shared/*": ["./src/shared/*"],
       "@/*": ["./src/*"]
     }

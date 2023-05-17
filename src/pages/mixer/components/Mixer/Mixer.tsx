@@ -2,29 +2,37 @@ import "@/styles/Mixer.module.css";
 
 import { MixerForm } from "./";
 import { Playlists } from "../Playlist";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Playlist } from "../../../../shared/mytypes/model.type";
+import { PlaylistMapping } from "@mytypes/internal.type";
+import { getPlaylistMapping } from "@/utils";
 
 const img =
   "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9";
 
-const data = [
+const data: Playlist[] = [
   {
+    id: 1,
     name: "Cool Playlist",
     img: img,
   },
   {
+    id: 2,
     name: "Aweomes playlist",
     img: img,
   },
   {
+    id: 3,
     name: "pepe poopoo",
     img: img,
   },
   {
+    id: 4,
     name: "aw Playlist",
     img: img,
   },
   {
+    id: 5,
     name: "erin is smelly",
     img: img,
   },
@@ -33,9 +41,17 @@ const data = [
 export default function Mixer() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [selectedPlaylists, setSelectedPlaylists] = useState<boolean[]>(
-    Array.prototype.fill(false, 0, data.length)
+  const [selectedPlaylists, setSelectedPlaylists] = useState<PlaylistMapping>(
+    {}
   );
+
+  const [playlists, setPlaylists] = useState<Playlist[]>([]);
+
+  useEffect(() => {
+    setPlaylists([...data]);
+    const mapping = getPlaylistMapping(playlists);
+    setSelectedPlaylists({ ...mapping });
+  }, []);
 
   const [newPlaylistName, setNewPlaylistName] = useState<string>("");
 
@@ -44,14 +60,15 @@ export default function Mixer() {
   };
 
   const createNewPlaylist = (e: any) => {
-    console.log(newPlaylistName);
+    console.log(newPlaylistName); // submit the new playlist
+
     setNewPlaylistName("");
   };
 
   const selectPlaylist = (e: any, index: number): void => {
     const updatedSelectedPlaylists = selectedPlaylists;
     updatedSelectedPlaylists[index] = !updatedSelectedPlaylists[index];
-    setSelectedPlaylists([...updatedSelectedPlaylists]);
+    setSelectedPlaylists({ ...updatedSelectedPlaylists });
   };
 
   return (
@@ -63,7 +80,7 @@ export default function Mixer() {
         <div className="col-lg-7 border-end">
           <Playlists
             isLoading={isLoading}
-            playlists={data}
+            playlists={playlists}
             selectedPlaylists={selectedPlaylists}
             selectPlaylist={selectPlaylist}
           />
