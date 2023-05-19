@@ -5,12 +5,17 @@ export default function PlaylistBlock(props: PlaylistBlockProp) {
     <div className="container rounded py-3">
       <div
         id="playlist-block"
-        className={`row rounded bg-light position-relative ${
+        className={`row rounded shadow bg-light position-relative ${
           active ? "active" : ""
         }`}
       >
         <div className="col-auto p-0">
-          <img className="rounded" src={imgUrl} width="100" height="100"></img>
+          <img
+            className="rounded object-fit-scale"
+            src={imgUrl}
+            width="100"
+            height="100"
+          ></img>
         </div>
         <div className="col align-self-center">
           <h4 className="text-center">{name}</h4>
