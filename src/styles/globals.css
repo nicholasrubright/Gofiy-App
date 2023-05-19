@@ -1,3 +1,7 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 #playlist-block:hover {
   background-color: #c1cad3 !important;
 }
@@ -9,4 +13,16 @@
 
 #playlist-block.active:hover {
   background-color: #1dbc8c !important;
+}
+
+.logo {
+  font-size: 72px;
+  background: rgb(51, 214, 165);
+  background: linear-gradient(
+    90deg,
+    rgba(51, 214, 165, 1) 31%,
+    rgba(15, 181, 131, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

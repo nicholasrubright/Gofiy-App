@@ -3,12 +3,11 @@ const img =
 
 export default function ProfileButton() {
   return (
-    <div className="btn-group">
+    <div className="dropdown">
       <button
         type="button"
         className="btn btn-primary dropdown-toggle border border-black rounded-pill"
         data-bs-toggle="dropdown"
-        aria-expanded="false"
       >
         <img
           className="img-fluid me-2 rounded-pill"
