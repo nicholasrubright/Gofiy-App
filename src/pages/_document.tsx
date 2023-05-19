@@ -24,10 +24,10 @@ export default function Document() {
       </Head>
       <body>
         <div className="container">
-          <div className="row">
+          <div className="row float-end">
             <Navbar />
           </div>
-          <div className="row">
+          <div className="row container-fluid">
             <Main />
           </div>
         </div>
