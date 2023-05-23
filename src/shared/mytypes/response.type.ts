@@ -1,5 +1,6 @@
 export type TokenResponse = {
   token: string;
+  expires_in: number;
 };
 
 export type AuthUrlResponse = {
@@ -14,36 +15,12 @@ export type ErrorResponse = {
 };
 
 export type UserProfileResponse = {
-  country: string;
-  displayName: string;
-  email: string;
-  explicitContent: ExplicitContent;
-  externalUrls: ExternalUrls;
-  followers: Followers;
-  href: string;
-  id: string;
-  images: Image[];
-  product: string;
-  type: string;
-  uri: string;
+  name: string;
+  images: UserImageResponse;
 };
 
-type Image = {
+export type UserImageResponse = {
   url: string;
   height: number;
   width: number;
-};
-
-type Followers = {
-  href: string;
-  total: number;
-};
-
-type ExternalUrls = {
-  spotify: string;
-};
-
-type ExplicitContent = {
-  filterEnabled: boolean;
-  filterLocked: boolean;
 };

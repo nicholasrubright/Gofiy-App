@@ -6,10 +6,16 @@ export default function Jumbotron() {
       <h1 className="display-5 fw-bold text-body-emphasis logo mb-4">Goifiy</h1>
       <div className="col-lg-6 mx-auto">
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <Link href="/mixer" className="btn btn-primary btn-lg px-4 gap-3">
-            Mix!
+          <Link
+            href="/mixer"
+            className="btn text-white btn-lg px-4 gap-3 btn-getStarted"
+          >
+            Get Started!
           </Link>
-          <button type="button" className="btn btn-mxGreen btn-lg px-4">
+          <button
+            type="button"
+            className="btn btn-secondary text-white btn-lg px-4"
+          >
             Learn More
           </button>
         </div>

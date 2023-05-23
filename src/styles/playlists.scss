@@ -1,0 +1,18 @@
+@use "./common.scss" as common;
+
+.playlist {
+  color: black;
+}
+
+.playlist:hover {
+  background-color: #c1cad3 !important;
+}
+
+.playlist.active {
+  background-color: common.$goify-greenFaded !important;
+  color: white;
+}
+
+.playlist.active:hover {
+  background-color: common.$goify-greenDarken !important;
+}

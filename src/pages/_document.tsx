@@ -1,4 +1,3 @@
-import Navbar from "@shared/components/Navbar";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -23,14 +22,7 @@ export default function Document() {
         ></script>
       </Head>
       <body>
-        <div className="container">
-          <div className="row float-end">
-            <Navbar />
-          </div>
-          <div className="row container-fluid">
-            <Main />
-          </div>
-        </div>
+        <Main />
         <NextScript></NextScript>
       </body>
     </Html>

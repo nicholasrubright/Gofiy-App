@@ -23,6 +23,18 @@ export default function MixerForm(props: MixerFormProps) {
               onChange={(e) => handleNewPlaylistName(e)}
             />
           </div>
+          <div className="mb-3">
+            <label htmlFor="newPlaylistDescription" className="form-label">
+              Description
+            </label>
+            <textarea
+              className="form-control"
+              id="newPlaylistDescription"
+              value={newPlaylistName}
+              placeholder="This is a really awesome playlist..."
+              onChange={(e) => handleNewPlaylistName(e)}
+            />
+          </div>
         </div>
         <div>
           <div id="stats" className="row border-top p-3">

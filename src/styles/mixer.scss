@@ -1,0 +1,10 @@
+@use "./common.scss" as common;
+
+.profile-dropdown {
+  background-color: common.$goify-greenFaded;
+  color: white;
+}
+
+.profile-dropdown:hover {
+  background-color: common.$goify-greenDarken;
+}

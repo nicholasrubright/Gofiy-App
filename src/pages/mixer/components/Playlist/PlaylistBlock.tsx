@@ -5,7 +5,7 @@ export default function PlaylistBlock(props: PlaylistBlockProp) {
     <div className="container rounded py-3">
       <div
         id="playlist-block"
-        className={`row rounded shadow bg-light position-relative ${
+        className={`row playlist rounded shadow bg-light position-relative ${
           active ? "active" : ""
         }`}
       >
