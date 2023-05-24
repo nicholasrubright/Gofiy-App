@@ -1,10 +1,32 @@
-@use "./common.scss" as common;
+@use "common" as *;
 
 .profile-dropdown {
-  background-color: common.$goify-greenFaded;
+  background-color: $goifyGreen-light;
   color: white;
 }
 
 .profile-dropdown:hover {
-  background-color: common.$goify-greenDarken;
+  background-color: $goifyGreen-dark;
+}
+
+.create-btn {
+  background-color: $goifyGreen-light;
+  color: white;
+}
+
+.create-btn:hover {
+  background-color: $goifyGreen-dark;
+  color: white;
+}
+
+.form-input {
+  background-color: $goifyBlack-lighter;
+  border-color: $goifyBlack !important;
+  color: white;
+}
+
+.form-input:focus {
+  background-color: $goifyBlack-light;
+  border-color: $goifyBlack !important;
+  color: white;
 }

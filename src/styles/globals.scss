@@ -1,8 +1,8 @@
-@use "./common.scss" as common;
-@use "./imports.scss";
+@use "common" as *;
+@use "imports";
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: common.$goify-black;
+  background-color: $goifyBlack;
   color: white;
 }

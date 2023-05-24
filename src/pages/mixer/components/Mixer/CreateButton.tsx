@@ -4,7 +4,7 @@ export default function CreateButton(props: CreateButtonProps) {
   return (
     <button
       type="button"
-      className={`btn ${!isLoading ? "btn-primary" : "btn-secondary"}`}
+      className={`btn ${!isLoading ? "create-btn" : "btn-secondary"}`}
       disabled={isLoading}
       onClick={(e) => createNewPlaylist(e)}
     >

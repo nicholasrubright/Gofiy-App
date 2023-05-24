@@ -5,10 +5,7 @@ export default function MixerForm(props: MixerFormProps) {
 
   return (
     <div className="container h-100">
-      <div className="">
-        <div id="title" className="row text-center border-bottom py-2">
-          <h2>Combine!</h2>
-        </div>
+      <div>
         <div id="fields" className="row mt-2 p-4">
           <div className="mb-3">
             <label htmlFor="newPlaylistName" className="form-label">
@@ -16,7 +13,7 @@ export default function MixerForm(props: MixerFormProps) {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control form-input"
               id="newPlaylistName"
               value={newPlaylistName}
               placeholder="Awesome Playlist"
@@ -28,7 +25,7 @@ export default function MixerForm(props: MixerFormProps) {
               Description
             </label>
             <textarea
-              className="form-control"
+              className="form-control form-input"
               id="newPlaylistDescription"
               value={newPlaylistName}
               placeholder="This is a really awesome playlist..."
@@ -37,7 +34,7 @@ export default function MixerForm(props: MixerFormProps) {
           </div>
         </div>
         <div>
-          <div id="stats" className="row border-top p-3">
+          <div id="stats" className="row p-3">
             <p>Total Songs: </p>
             <p>Total Selected Playlists: </p>
           </div>

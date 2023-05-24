@@ -1,4 +1,10 @@
-@use "./common.scss" as common;
+@use "common" as *;
+
+.playlist-container {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: $goifyBlack-lighter;
+}
 
 .playlist {
   color: black;
@@ -9,10 +15,21 @@
 }
 
 .playlist.active {
-  background-color: common.$goify-greenFaded !important;
+  background-color: $goifyGreen-light !important;
   color: white;
 }
 
 .playlist.active:hover {
-  background-color: common.$goify-greenDarken !important;
+  background-color: $goifyGreen-dark !important;
+}
+
+// Playlist Options
+.options-btn {
+  background-color: $goifyGreen;
+  color: white;
+}
+
+.options-btn:hover {
+  background-color: $goifyGreen-dark;
+  color: white;
 }

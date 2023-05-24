@@ -1,4 +1,4 @@
-@use "./common.scss" as common;
+@use "common" as *;
 
 .logo {
   font-size: 72px;
@@ -13,5 +13,9 @@
 }
 
 .btn-getStarted {
-  background-color: common.$goify-purple;
+  background-color: $goifyPurple;
+}
+
+.btn-getStarted:hover {
+  background-color: $goifyPurple-dark;
 }

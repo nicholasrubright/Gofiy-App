@@ -20,18 +20,18 @@ export default function Playlists(props: PlaylistProps) {
 
   return (
     <div className="container">
-      <div id="top" className="row text-center border-bottom mb-3">
-        <p>Playlists</p>
+      <div id="top" className="row text-center mb-3">
+        <h3>Playlists</h3>
       </div>
       <div
         id="playlists"
         style={{ height: "400px" }}
-        className="row overflow-auto px-3"
+        className="row overflow-auto px-3 playlist-container"
       >
         {isLoading && <Loader />}
         {!isLoading && playlistBlocks}
       </div>
-      <div id="bottom" className="row border-top mt-3 text-center py-2">
+      <div id="bottom" className="row mt-3 text-center py-2">
         <ListOptions />
       </div>
     </div>

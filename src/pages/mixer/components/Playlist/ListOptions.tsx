@@ -77,17 +77,17 @@ export default function ListOptions() {
   return (
     <div className="container">
       <div className="btn-group" role="group">
-        <button type="button" className="btn btn-outline-primary">
+        <button type="button" className="btn options-btn">
           <Button />
         </button>
         <button
           type="button"
-          className="btn btn-outline-primary"
+          className="btn options-btn"
           onClick={() => setSelectAllActive(!selectAllActive)}
         >
           <SelectAllButton active={selectAllActive} />
         </button>
-        <button type="button" className="btn btn-outline-primary">
+        <button type="button" className="btn options-btn">
           <ExitButton />
         </button>
       </div>
