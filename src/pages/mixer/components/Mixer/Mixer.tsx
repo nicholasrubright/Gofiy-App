@@ -3,39 +3,10 @@ import { Playlists } from "../Playlist";
 import { useEffect, useState } from "react";
 import { Playlist } from "../../../../shared/mytypes/model.type";
 import { PlaylistMapping } from "@mytypes/internal.type";
-import { getPlaylistMapping } from "@/utils";
+import { getPlaylistMapping, transformPlaylists } from "@/utils";
 import { UserPlaylistsResponse } from "@mytypes/response.type";
-
-// const img =
-//   "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9";
-
-// const data: Playlist[] = [
-//   {
-//     id: 1,
-//     name: "Cool Playlist",
-//     img: img,
-//   },
-//   {
-//     id: 2,
-//     name: "Aweomes playlist",
-//     img: img,
-//   },
-//   {
-//     id: 3,
-//     name: "pepe poopoo",
-//     img: img,
-//   },
-//   {
-//     id: 4,
-//     name: "aw Playlist",
-//     img: img,
-//   },
-//   {
-//     id: 5,
-//     name: "erin is smelly",
-//     img: img,
-//   },
-// ];
+import { getSelectedPlaylists } from "@/utils/playlist.util";
+import { createPlaylist } from "@/api/goify.api";
 
 export default function Mixer(props: MixerProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -48,29 +19,50 @@ export default function Mixer(props: MixerProps) {
 
   useEffect(() => {
     if (props.playlists !== null) {
-      const data = props.playlists.playlists.map((playlist) => {
-        return {
-          id: playlist.id,
-          img: playlist.images[0].url,
-          name: playlist.name,
-        } as Playlist;
-      });
-      setPlaylists(data);
+      const playlists = transformPlaylists(props.playlists);
+      setPlaylists(playlists);
       const mapping = getPlaylistMapping(playlists);
       setSelectedPlaylists({ ...mapping });
     }
   }, [props]);
 
   const [newPlaylistName, setNewPlaylistName] = useState<string>("");
+  const [newPlaylistDescription, setNewPlaylistDescription] =
+    useState<string>("");
 
   const handleNewPlaylistName = (e: any) => {
     setNewPlaylistName(e.target.value);
   };
 
-  const createNewPlaylist = (e: any) => {
+  const handleNewPlaylistDescription = (e: any) => {
+    setNewPlaylistDescription(e.target.value);
+  };
+
+  const createNewPlaylist = async (e: any) => {
     console.log(newPlaylistName); // submit the new playlist
+    console.log(newPlaylistDescription);
+
+    const ids = getSelectedPlaylists(playlists, selectedPlaylists);
+
+    const token = localStorage.getItem("goify-token");
+
+    const user = localStorage.getItem("user");
+
+    if (token !== null && user !== null) {
+      const res = await createPlaylist(
+        ids,
+        token,
+        user,
+        newPlaylistName,
+        newPlaylistDescription
+      );
+    }
 
     setNewPlaylistName("");
+    setNewPlaylistDescription("");
+
+    const mapping = getPlaylistMapping(playlists);
+    setSelectedPlaylists({ ...mapping });
   };
 
   const selectPlaylist = (e: any, index: number): void => {
@@ -93,7 +85,9 @@ export default function Mixer(props: MixerProps) {
         <div className="col-lg-5">
           <MixerForm
             newPlaylistName={newPlaylistName}
+            newPlaylistDescription={newPlaylistDescription}
             handleNewPlaylistName={handleNewPlaylistName}
+            handleNewPlaylistDescription={handleNewPlaylistDescription}
             createNewPlaylist={createNewPlaylist}
           />
         </div>

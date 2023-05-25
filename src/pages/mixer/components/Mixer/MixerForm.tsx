@@ -1,7 +1,13 @@
 import { CreateButton } from ".";
 
 export default function MixerForm(props: MixerFormProps) {
-  const { newPlaylistName, handleNewPlaylistName, createNewPlaylist } = props;
+  const {
+    newPlaylistName,
+    newPlaylistDescription,
+    handleNewPlaylistName,
+    handleNewPlaylistDescription,
+    createNewPlaylist,
+  } = props;
 
   return (
     <div className="container h-100">
@@ -27,9 +33,9 @@ export default function MixerForm(props: MixerFormProps) {
             <textarea
               className="form-control form-input"
               id="newPlaylistDescription"
-              value={newPlaylistName}
+              value={newPlaylistDescription}
               placeholder="This is a really awesome playlist..."
-              onChange={(e) => handleNewPlaylistName(e)}
+              onChange={(e) => handleNewPlaylistDescription(e)}
             />
           </div>
         </div>
@@ -54,6 +60,8 @@ export default function MixerForm(props: MixerFormProps) {
 
 interface MixerFormProps {
   newPlaylistName: string;
+  newPlaylistDescription: string;
   handleNewPlaylistName: (e: any) => void;
+  handleNewPlaylistDescription: (e: any) => void;
   createNewPlaylist: (e: any) => void;
 }

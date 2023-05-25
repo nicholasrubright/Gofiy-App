@@ -16,6 +16,7 @@ export type ErrorResponse = {
 
 // User Profile
 export type UserProfileResponse = {
+  id: string;
   name: string;
   images: UserImageResponse[];
 };
@@ -40,4 +41,8 @@ export type UserPlaylistResponse = {
   id: string;
   images: UserImageResponse[];
   name: string;
+};
+
+export type CreatePlaylistResponse = {
+  status: string;
 };
