@@ -4,39 +4,40 @@ import { useEffect, useState } from "react";
 import { Playlist } from "../../../../shared/mytypes/model.type";
 import { PlaylistMapping } from "@mytypes/internal.type";
 import { getPlaylistMapping } from "@/utils";
+import { UserPlaylistsResponse } from "@mytypes/response.type";
 
-const img =
-  "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9";
+// const img =
+//   "https://www.tandemconstruction.com/sites/default/files/styles/project_slider_main/public/images/project-images/IMG-Fieldhouse-10.jpg?itok=Whi8hHo9";
 
-const data: Playlist[] = [
-  {
-    id: 1,
-    name: "Cool Playlist",
-    img: img,
-  },
-  {
-    id: 2,
-    name: "Aweomes playlist",
-    img: img,
-  },
-  {
-    id: 3,
-    name: "pepe poopoo",
-    img: img,
-  },
-  {
-    id: 4,
-    name: "aw Playlist",
-    img: img,
-  },
-  {
-    id: 5,
-    name: "erin is smelly",
-    img: img,
-  },
-];
+// const data: Playlist[] = [
+//   {
+//     id: 1,
+//     name: "Cool Playlist",
+//     img: img,
+//   },
+//   {
+//     id: 2,
+//     name: "Aweomes playlist",
+//     img: img,
+//   },
+//   {
+//     id: 3,
+//     name: "pepe poopoo",
+//     img: img,
+//   },
+//   {
+//     id: 4,
+//     name: "aw Playlist",
+//     img: img,
+//   },
+//   {
+//     id: 5,
+//     name: "erin is smelly",
+//     img: img,
+//   },
+// ];
 
-export default function Mixer() {
+export default function Mixer(props: MixerProps) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [selectedPlaylists, setSelectedPlaylists] = useState<PlaylistMapping>(
@@ -46,10 +47,19 @@ export default function Mixer() {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
 
   useEffect(() => {
-    setPlaylists([...data]);
-    const mapping = getPlaylistMapping(playlists);
-    setSelectedPlaylists({ ...mapping });
-  }, []);
+    if (props.playlists !== null) {
+      const data = props.playlists.playlists.map((playlist) => {
+        return {
+          id: playlist.id,
+          img: playlist.images[0].url,
+          name: playlist.name,
+        } as Playlist;
+      });
+      setPlaylists(data);
+      const mapping = getPlaylistMapping(playlists);
+      setSelectedPlaylists({ ...mapping });
+    }
+  }, [props]);
 
   const [newPlaylistName, setNewPlaylistName] = useState<string>("");
 
@@ -90,4 +100,8 @@ export default function Mixer() {
       </div>
     </div>
   );
+}
+
+interface MixerProps {
+  playlists: UserPlaylistsResponse | null;
 }
