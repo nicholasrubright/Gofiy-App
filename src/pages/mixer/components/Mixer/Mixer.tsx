@@ -70,7 +70,7 @@ export default function Mixer() {
   };
 
   return (
-    <div className="container px-4 py-5 my-5">
+    <div className="container px-4 py-5">
       <div className="row">
         <div className="col-lg-7">
           <Playlists

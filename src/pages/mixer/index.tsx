@@ -9,6 +9,8 @@ import ErrorAlert from "@shared/components/ErrorAlert";
 import { getAuthorizationUrl, getProfile, getToken } from "@/api/goify.api";
 import Navbar from "@shared/components/Navbar";
 import { useEffect, useState } from "react";
+import Alert from "./components/Alerts/Alert";
+import { AlertEnum } from "@mytypes/internal.type";
 
 export default function Page(props: PageProps) {
   const { code } = props;
