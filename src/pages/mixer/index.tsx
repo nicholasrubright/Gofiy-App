@@ -8,6 +8,8 @@ import {
 import ErrorAlert from "@shared/components/ErrorAlert";
 import { getAuthorizationUrl, getProfile, getToken } from "@/api/goify.api";
 import Navbar from "@shared/components/Navbar";
+import Alert from "./components/Alerts/Alert";
+import { AlertEnum } from "@mytypes/internal.type";
 
 export default function Page(props: PageProps) {
   const { token, profile } = props;
@@ -20,6 +22,9 @@ export default function Page(props: PageProps) {
         <div className="row float-end">
           <Navbar profile={profile} />
         </div>
+        {true && (
+          <Alert type={AlertEnum.INFO} message={"This is a test alert."} />
+        )}
         <div className="row container-fluid">
           <Mixer />
         </div>
