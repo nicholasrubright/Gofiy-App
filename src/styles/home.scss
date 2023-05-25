@@ -17,13 +17,21 @@
 }
 
 .btn-getStarted:hover {
-  background-color: $bg-purple-dark;
+  background-color: $bg-purple-light;
+}
+
+.btn-getStarted:active {
+  background-color: $bg-purple-dark !important;
 }
 
 .btn-learnMore {
-  background-color: $bg-gray-dark;
+  background-color: $bg-gray;
 }
 
 .btn-learnMore:hover {
-  background-color: $bg-gray-darker;
+  background-color: $bg-gray-light;
+}
+
+.btn-learnMore:active {
+  background-color: $bg-gray-dark !important;
 }
