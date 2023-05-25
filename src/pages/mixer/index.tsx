@@ -24,7 +24,7 @@ export default function Page(props: PageProps) {
 
   useEffect(() => {
     const init = async () => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("goify-token");
       if (token !== null) {
         setToken(token);
 
@@ -59,7 +59,7 @@ export default function Page(props: PageProps) {
         }
 
         setProfile(profileResponse);
-        localStorage.setItem("token", tokenResponse.token);
+        localStorage.setItem("goify-token", tokenResponse.token);
       }
     };
 

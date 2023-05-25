@@ -1,10 +1,7 @@
 import { UserImageResponse } from "@mytypes/response.type";
 
-const img =
-  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-
 export default function ProfileButton(props: ProfileButtonProps) {
-  const { name, images } = props;
+  const { name, image } = props;
 
   return (
     <div className="dropdown">
@@ -14,10 +11,10 @@ export default function ProfileButton(props: ProfileButtonProps) {
         data-bs-toggle="dropdown"
       >
         <img
-          className="img-fluid me-2 rounded-pill"
-          src={img}
-          height="25"
-          width="25"
+          className="img-fluid me-2 rounded-circle"
+          src={image.url}
+          height="30"
+          width="30"
         />
         <span className="align-middle">{name}</span>
       </button>
@@ -32,5 +29,5 @@ export default function ProfileButton(props: ProfileButtonProps) {
 
 interface ProfileButtonProps {
   name: string;
-  images: UserImageResponse[];
+  image: UserImageResponse;
 }

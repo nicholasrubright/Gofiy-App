@@ -14,9 +14,10 @@ export type ErrorResponse = {
   description?: string;
 };
 
+// User Profile
 export type UserProfileResponse = {
   name: string;
-  images: UserImageResponse;
+  images: UserImageResponse[];
 };
 
 export type UserImageResponse = {

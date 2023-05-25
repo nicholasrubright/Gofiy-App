@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("goify-token");
   }, []);
 
   return (
