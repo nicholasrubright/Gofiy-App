@@ -13,9 +13,17 @@
 }
 
 .btn-getStarted {
-  background-color: $goifyPurple;
+  background-color: $bg-purple;
 }
 
 .btn-getStarted:hover {
-  background-color: $goifyPurple-dark;
+  background-color: $bg-purple-dark;
+}
+
+.btn-learnMore {
+  background-color: $bg-gray-dark;
+}
+
+.btn-learnMore:hover {
+  background-color: $bg-gray-darker;
 }
