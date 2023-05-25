@@ -29,7 +29,10 @@ export default function Playlists(props: PlaylistProps) {
         className="row overflow-auto px-3 playlist-container"
       >
         {isLoading && <Loader />}
-        {!isLoading && playlistBlocks}
+        {!isLoading && playlistBlocks.length > 0 && playlistBlocks}
+        {!isLoading && playlistBlocks.length === 0 && (
+          <h3 className="text-center p-4">No Playlists...</h3>
+        )}
       </div>
       <div id="bottom" className="row mt-3 text-center py-2">
         <ListOptions />

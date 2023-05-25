@@ -3,33 +3,33 @@
 .playlist-container {
   border-bottom-style: solid;
   border-top-style: solid;
-  border-color: $goifyBlack-lighter;
+  border-color: $bg-black-lighter;
 }
 
 .playlist {
-  color: black;
+  color: $bg-black;
 }
 
 .playlist:hover {
-  background-color: #c1cad3 !important;
+  background-color: $bg-gray !important;
 }
 
 .playlist.active {
-  background-color: $goifyGreen-light !important;
-  color: white;
+  background-color: $bg-green-light !important;
+  color: $bg-white;
 }
 
 .playlist.active:hover {
-  background-color: $goifyGreen-dark !important;
+  background-color: $bg-green-dark !important;
 }
 
 // Playlist Options
 .options-btn {
-  background-color: $goifyGreen;
-  color: white;
+  background-color: $bg-green;
+  color: $bg-white;
 }
 
 .options-btn:hover {
-  background-color: $goifyGreen-dark;
-  color: white;
+  background-color: $bg-green-dark;
+  color: $bg-white;
 }

@@ -1,32 +1,41 @@
 @use "common" as *;
 
 .profile-dropdown {
-  background-color: $goifyGreen-light;
-  color: white;
+  background-color: $bg-green-light;
+  color: $bg-white;
 }
 
 .profile-dropdown:hover {
-  background-color: $goifyGreen-dark;
+  background-color: $bg-green-dark;
 }
 
 .create-btn {
-  background-color: $goifyGreen-light;
-  color: white;
+  background-color: $bg-green-light;
+  color: $bg-white;
 }
 
 .create-btn:hover {
-  background-color: $goifyGreen-dark;
-  color: white;
+  background-color: $bg-green-dark;
+  color: $bg-white;
 }
 
 .form-input {
-  background-color: $goifyBlack-lighter;
-  border-color: $goifyBlack !important;
-  color: white;
+  background-color: $bg-black-lighter;
+  border-color: $bg-black !important;
+  color: $bg-white;
 }
 
 .form-input:focus {
-  background-color: $goifyBlack-light;
-  border-color: $goifyBlack !important;
-  color: white;
+  background-color: $bg-black-light;
+  border-color: $bg-black !important;
+  color: $bg-white;
+}
+
+.alert-red {
+  background-color: $bg-red;
+}
+
+.alert-yellow {
+  background-color: $bg-yellow;
+  color: $bg-black;
 }

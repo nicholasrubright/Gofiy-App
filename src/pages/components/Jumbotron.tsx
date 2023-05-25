@@ -14,7 +14,7 @@ export default function Jumbotron() {
           </Link>
           <button
             type="button"
-            className="btn btn-secondary text-white btn-lg px-4"
+            className="btn btn-learnMore text-white btn-lg px-4"
           >
             Learn More
           </button>
