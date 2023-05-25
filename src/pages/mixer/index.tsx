@@ -3,10 +3,17 @@ import { GetServerSidePropsContext } from "next";
 import {
   AuthUrlResponse,
   TokenResponse,
+  UserPlaylistResponse,
+  UserPlaylistsResponse,
   UserProfileResponse,
 } from "@mytypes/response.type";
 import ErrorAlert from "@shared/components/ErrorAlert";
-import { getAuthorizationUrl, getProfile, getToken } from "@/api/goify.api";
+import {
+  getAuthorizationUrl,
+  getPlaylists,
+  getProfile,
+  getToken,
+} from "@/api/goify.api";
 import Navbar from "@shared/components/Navbar";
 import { useEffect, useState } from "react";
 import Alert from "./components/Alerts/Alert";
@@ -17,6 +24,9 @@ export default function Page(props: PageProps) {
 
   const [token, setToken] = useState<string>("");
   const [profile, setProfile] = useState<UserProfileResponse | null>(null);
+  const [playlists, setPlaylists] = useState<UserPlaylistsResponse | null>(
+    null
+  );
 
   if (code === null) {
     return <ErrorAlert message={"There was a problem. No Code Bro!"} />;
@@ -59,6 +69,17 @@ export default function Page(props: PageProps) {
         }
 
         setProfile(profileResponse);
+
+        let playlistsResponse = await getPlaylists(tokenResponse.token);
+
+        if ("error" in playlistsResponse) {
+          return;
+        } else {
+          playlistsResponse = playlistsResponse as UserPlaylistsResponse;
+        }
+
+        setPlaylists(playlistsResponse);
+
         localStorage.setItem("goify-token", tokenResponse.token);
       }
     };
@@ -72,7 +93,7 @@ export default function Page(props: PageProps) {
         <Navbar profile={profile} />
       </div>
       <div className="row container-fluid">
-        <Mixer />
+        <Mixer playlists={playlists} />
       </div>
     </div>
   );

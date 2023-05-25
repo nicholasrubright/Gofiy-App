@@ -1,5 +1,5 @@
 export type Playlist = {
-  id: number;
+  id: string;
   name: string;
   img: string;
 };

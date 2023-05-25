@@ -25,3 +25,19 @@ export type UserImageResponse = {
   height: number;
   width: number;
 };
+
+// User Playlist
+export type UserPlaylistsResponse = {
+  limit: number;
+  next: string;
+  offset: number;
+  previous: string;
+  total: number;
+  playlists: UserPlaylistResponse[];
+};
+
+export type UserPlaylistResponse = {
+  id: string;
+  images: UserImageResponse[];
+  name: string;
+};
