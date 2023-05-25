@@ -30,7 +30,7 @@ export const getProfile = (
   return fetch(`${baseUrl}/api/profile`, {
     method: "GET",
     headers: {
-      "x-goifiy-token": token,
+      "X-Goifiy-Token": token,
     },
   }).then(checkStatus);
 };
