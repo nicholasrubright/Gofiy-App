@@ -30,9 +30,9 @@ export default function PlaylistBlock(props: PlaylistBlockProp) {
 }
 
 interface PlaylistBlockProp {
-  id: number;
+  id: string;
   imgUrl: string;
   name: string;
   active: boolean;
-  selectPlaylist: (e: any, index: number) => void;
+  selectPlaylist: (e: any, id: string) => void;
 }

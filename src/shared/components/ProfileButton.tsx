@@ -12,7 +12,7 @@ export default function ProfileButton(props: ProfileButtonProps) {
       >
         <img
           className="img-fluid me-2 rounded-circle"
-          src={image.url}
+          src={image === null ? "/images/person-circle.svg" : image.url}
           height="30"
           width="30"
         />
@@ -29,5 +29,5 @@ export default function ProfileButton(props: ProfileButtonProps) {
 
 interface ProfileButtonProps {
   name: string;
-  image: UserImageResponse;
+  image: UserImageResponse | null;
 }

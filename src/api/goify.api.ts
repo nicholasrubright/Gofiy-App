@@ -28,7 +28,7 @@ export const getToken = (
   }).then(checkStatus);
 };
 
-export const getProfile = (
+export const getProfile = async (
   token: string
 ): Promise<UserProfileResponse | ErrorResponse> => {
   return fetch(`${baseUrl}/api/profile`, {

@@ -45,5 +45,5 @@ interface PlaylistProps {
   isLoading: boolean;
   playlists: Playlist[];
   selectedPlaylists: PlaylistMapping;
-  selectPlaylist: (e: any, id: number) => void;
+  selectPlaylist: (e: any, id: string) => void;
 }

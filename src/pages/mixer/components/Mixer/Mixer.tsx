@@ -65,7 +65,7 @@ export default function Mixer(props: MixerProps) {
     setSelectedPlaylists({ ...mapping });
   };
 
-  const selectPlaylist = (e: any, index: number): void => {
+  const selectPlaylist = (e: any, index: string): void => {
     const updatedSelectedPlaylists = selectedPlaylists;
     updatedSelectedPlaylists[index] = !updatedSelectedPlaylists[index];
     setSelectedPlaylists({ ...updatedSelectedPlaylists });
