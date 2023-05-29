@@ -12,6 +12,7 @@
 
 .playlist:hover {
   background-color: $bg-gray !important;
+  cursor: pointer;
 }
 
 .playlist.active {
