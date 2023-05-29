@@ -21,7 +21,6 @@ export const getAuthorizationUrl = (): Promise<
 export const getToken = (
   code: string
 ): Promise<TokenResponse | ErrorResponse> => {
-  console.log("getting token!!!!");
   return fetch(`${baseUrl}/api/token`, {
     method: "POST",
     body: JSON.stringify({ code }),
