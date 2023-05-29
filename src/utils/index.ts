@@ -1,1 +1,1 @@
-export { getPlaylistMapping } from "./playlist.util";
+export { getPlaylistMapping, transformPlaylists } from "./playlist.util";

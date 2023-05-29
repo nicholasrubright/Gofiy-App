@@ -1,4 +1,4 @@
-export type PlaylistMapping = Record<number, boolean>;
+export type PlaylistMapping = Record<string, boolean>;
 
 export enum AlertEnum {
   ERROR,

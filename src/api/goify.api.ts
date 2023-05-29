@@ -5,7 +5,10 @@ import {
   UserProfileResponse,
 } from "@mytypes/index";
 import { checkStatus } from "../utils/fetch.util";
-import { UserPlaylistsResponse } from "@mytypes/response.type";
+import {
+  CreatePlaylistResponse,
+  UserPlaylistsResponse,
+} from "@mytypes/response.type";
 
 const baseUrl = "http://127.0.0.1:8080";
 
@@ -18,14 +21,13 @@ export const getAuthorizationUrl = (): Promise<
 export const getToken = (
   code: string
 ): Promise<TokenResponse | ErrorResponse> => {
-  console.log("getting token!!!!");
   return fetch(`${baseUrl}/api/token`, {
     method: "POST",
     body: JSON.stringify({ code }),
   }).then(checkStatus);
 };
 
-export const getProfile = (
+export const getProfile = async (
   token: string
 ): Promise<UserProfileResponse | ErrorResponse> => {
   return fetch(`${baseUrl}/api/profile`, {
@@ -45,4 +47,20 @@ export const getPlaylists = (
       "X-Goifiy-Token": token,
     },
   }).then(checkStatus);
+};
+
+export const createPlaylist = (
+  playlists: string[],
+  token: string,
+  user: string,
+  name: string,
+  description: string
+): Promise<CreatePlaylistResponse | ErrorResponse> => {
+  return fetch(`${baseUrl}/api/playlists`, {
+    method: "POST",
+    headers: {
+      "X-Goifiy-Token": token,
+    },
+    body: JSON.stringify({ playlists, user, name, description }),
+  });
 };

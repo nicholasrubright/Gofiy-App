@@ -16,13 +16,10 @@ import {
 } from "@/api/goify.api";
 import Navbar from "@shared/components/Navbar";
 import { useEffect, useState } from "react";
-import Alert from "./components/Alerts/Alert";
-import { AlertEnum } from "@mytypes/internal.type";
 
 export default function Page(props: PageProps) {
   const { code } = props;
 
-  const [token, setToken] = useState<string>("");
   const [profile, setProfile] = useState<UserProfileResponse | null>(null);
   const [playlists, setPlaylists] = useState<UserPlaylistsResponse | null>(
     null
@@ -36,8 +33,6 @@ export default function Page(props: PageProps) {
     const init = async () => {
       const token = localStorage.getItem("goify-token");
       if (token !== null) {
-        setToken(token);
-
         let profileResponse = await getProfile(token);
 
         if ("error" in profileResponse) {
@@ -48,6 +43,16 @@ export default function Page(props: PageProps) {
 
         setProfile(profileResponse);
 
+        let playlistsResponse = await getPlaylists(token);
+
+        if ("error" in playlistsResponse) {
+          return;
+        } else {
+          playlistsResponse = playlistsResponse as UserPlaylistsResponse;
+        }
+
+        setPlaylists(playlistsResponse);
+
         return;
       } else {
         let tokenResponse = await getToken(code);
@@ -57,8 +62,6 @@ export default function Page(props: PageProps) {
         } else {
           tokenResponse = tokenResponse as TokenResponse;
         }
-
-        setToken(tokenResponse.token);
 
         let profileResponse = await getProfile(tokenResponse.token);
 
@@ -80,6 +83,7 @@ export default function Page(props: PageProps) {
 
         setPlaylists(playlistsResponse);
 
+        localStorage.setItem("user", profileResponse.id);
         localStorage.setItem("goify-token", tokenResponse.token);
       }
     };
