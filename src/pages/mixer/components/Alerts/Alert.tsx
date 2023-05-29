@@ -1,4 +1,4 @@
-import { AlertEnum } from "@mytypes/internal.type";
+import { AlertEnum } from "@mytypes/index";
 
 const ErrorAlert = (message: string) => {
   return (

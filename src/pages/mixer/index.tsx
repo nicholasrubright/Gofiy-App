@@ -1,12 +1,11 @@
 import { Mixer } from "@/pages/mixer/components/Mixer";
 import { GetServerSidePropsContext } from "next";
 import {
-  AuthUrlResponse,
+  AuthorizationUrlResponse,
   TokenResponse,
-  UserPlaylistResponse,
   UserPlaylistsResponse,
   UserProfileResponse,
-} from "@mytypes/response.type";
+} from "@mytypes/index";
 import ErrorAlert from "@shared/components/ErrorAlert";
 import {
   getAuthorizationUrl,
@@ -120,7 +119,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     if ("error" in response) {
       return defaultProps;
     } else {
-      response = response as AuthUrlResponse;
+      response = response as AuthorizationUrlResponse;
     }
 
     const { url } = response;

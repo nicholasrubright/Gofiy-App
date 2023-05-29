@@ -2,9 +2,8 @@ import { MixerForm } from "./";
 import { Playlists } from "../Playlist";
 import { useEffect, useState } from "react";
 import { Playlist } from "../../../../shared/mytypes/model.type";
-import { PlaylistMapping } from "@mytypes/internal.type";
+import { PlaylistMapping, UserPlaylistsResponse } from "@mytypes/index";
 import { getPlaylistMapping, transformPlaylists } from "@/utils";
-import { UserPlaylistsResponse } from "@mytypes/response.type";
 import { getSelectedPlaylists } from "@/utils/playlist.util";
 import { createPlaylist } from "@/api/goify.api";
 

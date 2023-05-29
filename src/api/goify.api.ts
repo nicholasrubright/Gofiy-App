@@ -1,19 +1,17 @@
 import {
-  AuthUrlResponse,
+  AuthorizationUrlResponse,
   ErrorResponse,
   TokenResponse,
   UserProfileResponse,
-} from "@mytypes/index";
-import { checkStatus } from "../utils/fetch.util";
-import {
   CreatePlaylistResponse,
   UserPlaylistsResponse,
-} from "@mytypes/response.type";
+} from "@mytypes/index";
+import { checkStatus } from "../utils/fetch.util";
 
 const baseUrl = "http://127.0.0.1:8080";
 
 export const getAuthorizationUrl = (): Promise<
-  AuthUrlResponse | ErrorResponse
+  AuthorizationUrlResponse | ErrorResponse
 > => {
   return fetch(`${baseUrl}/api/auth`).then(checkStatus);
 };
@@ -62,5 +60,5 @@ export const createPlaylist = (
       "X-Goifiy-Token": token,
     },
     body: JSON.stringify({ playlists, user, name, description }),
-  });
+  }).then(checkStatus);
 };

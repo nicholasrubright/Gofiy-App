@@ -1,4 +1,4 @@
-import { UserImageResponse } from "@mytypes/response.type";
+import { ImageResponse } from "@mytypes/index";
 
 export default function ProfileButton(props: ProfileButtonProps) {
   const { name, image } = props;
@@ -29,5 +29,5 @@ export default function ProfileButton(props: ProfileButtonProps) {
 
 interface ProfileButtonProps {
   name: string;
-  image: UserImageResponse | null;
+  image: ImageResponse | null;
 }
